@@ -7,15 +7,27 @@ contract Employee{
     string city;
     bool exists;
     }
-    uint public TotalEmp=0;
+    
+     //On addition of new Employee the EmployeeId is incremented by one.
+    uint public EmployeeId=0;
+    
+    //getEmployeeById is a transact that returns the details of the Employee 
     mapping(uint=>EmployeeDetails) public getEmployeeById;
-    function add(string memory _Student_Name,string memory _Address,string memory _city)public{
-     TotalEmp++;
-     getEmployeeById[TotalEmp]=EmployeeDetails(TotalEmp,_Student_Name,_Address,_city,true);
+    
+    //transact to add new Employee
+    function add_employee(string memory _Student_Name,string memory _Address,string memory _city)public{
+     EmployeeId++;
+     getEmployeeById[EmployeeId]=EmployeeDetails(EmployeeId,_Student_Name,_Address,_city,true);
     }
-    function update(uint id,string memory _Student_Name,string memory _Address,string memory _city)public{
+    
+    //transact to update the existing Employee with the ID
+    function update_employee(uint id,string memory _Student_Name,string memory _Address,string memory _city)public{
+        
+        //to check if the Employee with the given ID exist
         require(getEmployeeById[id].exists);
-               getEmployeeById[id]=EmployeeDetails(id,_Student_Name,_Address,_city,true);
+               
+        //the details of the Employee with the ID given as the input is oerwritten with the new details.
+        getEmployeeById[id]=EmployeeDetails(id,_Student_Name,_Address,_city,true);
     
          }
 }
