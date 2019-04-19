@@ -27,3 +27,8 @@ The new employees and their details can be added and existing employee details c
 * The new borrow request can be created using create request transact.
 * The details of existing request can be updated with the update_request transact.
 * The validation of the requested amout is made via the require condition which checks if the requested amount is lesser than 10000. If so then only the request is granted else not.
+
+## Steps for execution:
+1. Open the code using Remix IDE(https://remix.ethereum.org/)
+2. Deploy the solodity contract using the Deploy button on the right and selecting the Javascript VM as the environment.
+3. Once the project is deloyed successfully one can test the respective transacts.
